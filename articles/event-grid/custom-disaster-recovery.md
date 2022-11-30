@@ -2,7 +2,7 @@
 title: Build your own disaster recovery plan for Azure Event Grid topics and domains
 description: This tutorial will walk you through how to set up your eventing architecture to recover if the Event Grid service becomes unhealthy in a region.
 ms.topic: tutorial
-ms.date: 06/14/2022
+ms.date: 11/30/2022
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
@@ -44,6 +44,9 @@ The previously created Azure Event Grid resources endpoints will be used when we
 Traffic Manager it's a global resource that provides a unique DNS name, like: `https://myeventgridtopic.trafficmanager.net`. Once you configure both Azure Event Grid topic endpoints in the Traffic Manager, it will automatically redirect the traffic to the second region once the primary region becomes unavailable.
 
 At this moment you have your resources deployed and running, and can start sending events to your traffic manager endpoint, in case you don't want to keep active the secondary endpoint in your traffic manager you may be interested to [disable the endpoint](../traffic-manager/traffic-manager-manage-endpoints.md#to-disable-an-endpoint).
+
+> [!NOTE]
+> If you see the `RemoteCertificateNameMisMatch` error when calling the Azure Traffic Manager in your application, you can proceed by suppressing the warning.
 
 ## Integrate deployment scripts in your CI/CD process
 
